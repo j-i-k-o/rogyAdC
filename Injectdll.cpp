@@ -44,7 +44,6 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 }
 DWORD WINAPI apiHook(LPVOID pData)
 {
-	MessageBox(NULL, _TEXT("I am DLL file."), _TEXT("message"), MB_OK);
 	HMODULE baseAddr = GetModuleHandle(NULL);
 	DWORD dwIdataSize;
 	PIMAGE_IMPORT_DESCRIPTOR pImgDesc = (PIMAGE_IMPORT_DESCRIPTOR)ImageDirectoryEntryToData(baseAddr, TRUE, IMAGE_DIRECTORY_ENTRY_IMPORT, &dwIdataSize);
@@ -86,7 +85,6 @@ DWORD WINAPI apiHook(LPVOID pData)
 
 		pIAT++;pINT++;
 	}
-	MessageBox(NULL, _TEXT("Success"), _TEXT("Success"), MB_OK);
 	return 0;
 }
 
